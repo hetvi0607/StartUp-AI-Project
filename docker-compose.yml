@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: startuphub-ai-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: startuphub_ai
+    ports:
+      - "5432:5432"
+    volumes:
+      - startuphub_ai_pg:/var/lib/postgresql/data
+
+volumes:
+  startuphub_ai_pg:
